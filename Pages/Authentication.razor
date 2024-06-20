@@ -1,7 +1,12 @@
 ﻿@page "/authentication/{action}"
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-<RemoteAuthenticatorView Action="@Action" />
+
+<RemoteAuthenticatorView Action="@Action" OnLogInSucceeded="OnLogInSucceeded" />
 
 @code{
     [Parameter] public string? Action { get; set; }
+
+    public void OnLogInSucceeded() {
+        Console.WriteLine("OnLogInSucceeded");
+    }
 }
